@@ -29,19 +29,19 @@ def get_notebook_list(note_store, notebook_guid, number=10, offset=0):
 
 
 if __name__ == '__main__':
+
+    config = Settings()
     parser = argparse.ArgumentParser(description=u'Dumps notes from Evernote inbox to console')
     parser.add_argument('number',
                         nargs='?',
                         type=int,
-                        default=10,
+                        default=config.INBOX_NOTES_COUNT,
                         help='number of records to dump')
     args = parser.parse_args()
 
-    config = Settings()
-
     client = EvernoteClient(
         token=config.EVERNOTE_PERSONAL_TOKEN,
-        sandbox=False
+        sandbox=True
     )
     note_store = client.get_note_store()
 
