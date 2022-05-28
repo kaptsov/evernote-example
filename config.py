@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     JOURNAL_NOTEBOOK_GUID: str
 
     INBOX_NOTEBOOK_GUID: str
+    INBOX_NOTES_COUNT: int
     
     class Config:
         env_file = '.env'
